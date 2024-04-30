@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+void printfunctionarray(int arr[] , int size) {
+    cout << "printing the array\n";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " , ";
+    }
+
+}
+int smallesinarray(int arr[], int size) {
+    int smallestnum = 100000;
+    int b = 0;
+    for (int i = 0; i < size; i++) {
+        if (smallestnum < arr[i]) {
+            smallestnum = smallestnum;
+        }
+        else {
+            smallestnum = arr[i];
+            b = i;
+        }
+        cout << "smallest num is " << smallestnum <<endl;
+        return b;
+    }
+}
+int biggestinarray(int arr[], int size) {
+    int a = 0;
+    int placeinarray = 0;
+    for (int i = 0; i < size; i++) {
+        if (a > arr[i]) {
+            a = a;
+        }
+        else {
+            a = arr[i];
+            placeinarray = i;
+        }
+        cout << "biggest num is " << a<<endl;
+        return placeinarray;
+    }
+    
+}
+
+int arrayMean(int arr[], int size) {
+   int thememutza = 0;
+    for (int i = 0; i<size; i++) {
+        thememutza = thememutza + arr[i];
+    }
+    int computer = thememutza / size;
+    return computer;
+}
+int main()
+{
+    int size;
+    cout << "enter size for array up to 100: \n";
+    cin >> size;
+    int arr[100];
+    for (int i = 0; i < size; i++) {
+        cout << "enter " << i << "th value \n";
+        cin >> arr[i];
+    }
+     printfunctionarray(arr, size);
+
+
+    bool ans=true;
+    for (int i=0; i < size / 2; i++) {
+        if (arr[i] != arr[size - i - 1])
+            ans = false;
+        else if (arr[i] = arr[size - i - 1])
+            ans = true;
+    }
+    if (ans == true) {
+        cout << "array is simmetry\n";
+    }
+    else {
+        cout << "array is not simmetry\n";
+    }
+   
+    int a = smallesinarray(arr, size);
+    cout << " the smallest number is in the place- " << a << " -in the array\n";
+    int sentobiggest = biggestinarray(arr, size);
+    int sendtoarraymean = arrayMean(arr, size);
+    cout <<"the mean is "<< sendtoarraymean<<endl;
+
+    return 0;
+}
