@@ -32,3 +32,35 @@ int main()
     cout<<endl;
 
 }
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string searchReplace(string str, string oldSubStr, string newSubStr) {
+    int index = 0;
+    while (index != -1) {
+        index = str.find(oldSubStr);
+        if (index != -1) {
+            str.replace(index, oldSubStr.length(), newSubStr);
+        }
+    }
+    return str;
+}
+
+
+int main()
+{
+    string makor, word, new_word;
+    cout << "Please enter a genuine sentence :" << endl;
+    getline(cin, makor);
+    cout << "Please enter a word to replace:" << endl;
+    cin >> word;
+    cout << "Please enter the new word to replace:" << endl;
+    cin >> new_word;
+    makor = searchReplace(makor, word, new_word);
+    cout << "the new sentence is:" << endl << makor << endl;
+    system("pause");
+    return 0;
+}
+
